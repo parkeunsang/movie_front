@@ -7,7 +7,6 @@ import MovieList from '../views/MovieList.vue'
 import Recommend from '../views/Recommend.vue'
 import SignUp from '../views/SignUp.vue'
 
-
 Vue.use(VueRouter)
 
 const routes = [
@@ -15,6 +14,7 @@ const routes = [
     path: '/',
     name: 'App',
     component: App
+
   },
   {
     path: '/Board',
@@ -41,6 +41,7 @@ const routes = [
     name: 'SignUp',
     component: SignUp
   },
+
 ]
 
 const router = new VueRouter({
