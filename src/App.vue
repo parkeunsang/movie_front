@@ -11,6 +11,7 @@
         </div>  
       </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -21,6 +22,7 @@ export default {
   name: 'App',
   components: {
     Search,
+    Menu
   },
 }
 </script>
