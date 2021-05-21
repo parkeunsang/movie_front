@@ -1,10 +1,17 @@
 <template>
-  <div></div>
+  <div>
+    <NavMenu/>
+  </div>
 </template>
 
 <script>
+import NavMenu from '@/components/NavMenu.vue'
+
 export default {
-  name: 'MovieList'
+  name: 'MovieList',
+  components: {
+    NavMenu,
+    }
 }
 </script>
 
