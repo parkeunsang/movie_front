@@ -9,7 +9,7 @@
         <div class="col-6">
           <Menu/>
         </div>  
-      </div>1231231
+      </div>
     </div>
   </div>
 </template>
