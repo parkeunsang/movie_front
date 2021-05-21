@@ -26,12 +26,25 @@
 
 <script>
 import NavMenu from '@/components/NavMenu.vue'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'SignUp',
+  data() {
+    return {
+      signupData: {
+        username: null,
+        password1: null,
+        password2: null,
+      }
+    }
+  },
   components: {
     NavMenu,
-    }
+  },
+  methods: {
+    ...mapActions(['signup'])
+  }
 }
 </script>
 
