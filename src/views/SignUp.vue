@@ -17,6 +17,10 @@
       <label for="password2">password:</label>
       <input v-model="signupData.password2" id="password2" type="password" />
     </div>
+    <!-- <div>
+      <label for="email">E-mail:</label>
+      <input v-model="signupData.email" id="email" type="email" />
+    </div> -->
     <div>
       <button @click="signup(signupData)">Signup</button>
     </div>
@@ -36,6 +40,7 @@ export default {
         username: null,
         password1: null,
         password2: null,
+        // email: null,
       }
     }
   },

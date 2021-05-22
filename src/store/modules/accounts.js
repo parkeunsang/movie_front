@@ -27,6 +27,7 @@ const actions = {
         cookies.set('auth-token', res.data.key, '2d')
         
         // redirect => /articles
+        console.log('회원가입성공')
         router.push({ name: 'Home' })
       })
       .catch(err => {
@@ -41,6 +42,26 @@ const actions = {
     }
     dispatch('postAuthData', info)
   },
+
+  login({ dispatch }, loginData) {
+    const info = {
+      data: loginData,
+      path: DRF.ROUTES.login
+    }
+    dispatch('postAuthData', info)
+  },
+
+  logout({ getters, commit }) {
+    const FULL_URL_PATH = DRF.URL + DRF.ROUTES.logout
+    axios.post(FULL_URL_PATH, null, getters.config)
+      .then(() => {  // Django DB 테이블에서는 삭제 | cookie, state 에서는 존재
+        cookies.remove('auth-token')  // cookie 삭제 | state 에서는 존재
+        commit('SET_TOKEN', null)  // state 에서도 삭제
+        router.push({ name: 'Home' }) 
+      })
+      .catch(err => console.error(err.response.data))
+  },
+
 }
 
 export default {
