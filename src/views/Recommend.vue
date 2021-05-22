@@ -1,6 +1,7 @@
 <template>
   <div>
     <NavMenu/>
+    hi
   </div>
 </template>
 
