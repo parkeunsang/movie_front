@@ -7,13 +7,18 @@
     <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" class="card-img-top" alt="...">
     </div>
     <div class="col-6">
-        {{ genres }}
-        {{ movie.budget }}
-        {{ movie.overview }}
-        {{ movie.release_date }}
-        {{ movie.revenue }}
-        {{ movie.runtime }}
-        {{ movie.vote_average }}
+        <p>장르 : {{ genres }}</p>
+        <p>예산 : {{ movie.budget }}</p>
+        <p>설명 : {{ movie.overview }}</p>
+        <p>개봉일 : {{ movie.release_date }}</p>
+        <p>수익: {{ movie.revenue }}</p>        
+        <p>상영시간 : {{ movie.runtime }}</p>
+        <p>평점 : {{ movie.vote_average }}</p>
+        
+
+        <!-- <div v-if="movie !== {}">
+          
+        </div> -->
     </div>
     </div>
   </div>
@@ -29,10 +34,13 @@ export default {
   computed: {
     genres() {
       console.log('t', this.movie.genres[0].name)
-      const genres = this.movie.genres.forEach(element => element.name)
+      const genres = this.movie.genres.map(element => element.name)
       console.log(genres)
       return genres
     }
+  },
+  created() {
+    console.log(this.movie)
   }
 }
 </script>

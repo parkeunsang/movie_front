@@ -17,20 +17,27 @@
 
 
     <div class="container">
-
-    <div class="row">
-      <div class="card col-3" style="width: 18rem;" v-for="movie in movies" :key="movie.id">
-          <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{ movie.title_ko }}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-            @click="getDetail(movie)">
-              Detail
-            </button>
-          </div>
+      <div class="row" v-if="picked==='title'">
+        <div class="card col-3" style="width: 18rem;" v-for="movie in movies" :key="movie.id">
+            <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ movie.title_ko }}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              @click="getDetail(movie)">
+                Detail
+              </button>
+            </div>
         </div>
       </div>
+      <div class="row" v-if="picked==='keywords'">
+          <div v-for="img_link in movies.img_list" :key=img_link>
+            <img :src="`https://www.whatismymovie.com/${img_link}`" alt="...">
+          </div>
+          {{ movies.img_list }}
+
+      </div>
+
     </div>
   </div>
 </template>
@@ -54,18 +61,26 @@ export default {
   },
   methods: {
     getDetail(movie) {
-      console.log('나중에쓸거',movie)
-      const url = `https://api.themoviedb.org/3/movie/${634649}?api_key=${API_KEY}&language=ko`
+      const url = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${API_KEY}&language=ko`
       axios.get(url)
       .then((res) => {
         this.movie = res.data
       })
     }
   },
+  computed: {
+    picked() {
+      return this.$store.state.keywords.picked
+    },
+    inputValue() {
+      return this.$store.state.keywords.inputValue
+    }
+  },
   created() {
-    axios.get('http://127.0.0.1:8000/movies/')
+    axios.get(`http://127.0.0.1:8000/movies/search/${this.picked}/${this.inputValue}`)
       .then((res) => {
         this.movies = res.data
+        // this.movie = this.movies[0]
       })
     // console.log( this.$store.state.keywords.picked)
     // console.log( this.$store.state.keywords.inputValue)
