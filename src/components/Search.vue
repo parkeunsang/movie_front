@@ -13,14 +13,17 @@
       </label>
     </div>
 
-    <input v-model="inputValue" @keypress.enter="submitData" type="text">
-    <button @click="submitData">검색</button>
+    <input v-model="inputValue" type="text">
+    <RouterLink :to="{name: 'MovieList'}"><button @click="getKeywords({picked, inputValue})">검색</button></RouterLink>
+    
   </div>
 </template>
-
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'Search',
+  components: {
+  },
   data() {
     return {
       inputValue: '',
@@ -28,9 +31,7 @@ export default {
     }
   },
   methods: {
-    submitData(){
-      console.log(this.picked)
-    }
+    ...mapActions(['getKeywords'])
   }
 }
 </script>
