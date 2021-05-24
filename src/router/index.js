@@ -5,6 +5,7 @@ import store from '@/store'
 
 import Home from '../views/Home.vue'
 import Board from '../views/Board.vue'
+import CreateArticles from '../views/CreateArticles.vue'
 import Login from '../views/Login.vue'
 import MovieList from '../views/MovieList.vue'
 import Recommend from '../views/Recommend.vue'
@@ -49,6 +50,11 @@ const routes = [
     path: '/Logout',
     name: 'Logout',
     component: Logout
+  },
+  {
+    path: '/Board/create',
+    name: 'Create',
+    component: CreateArticles
   },
 
 ]
