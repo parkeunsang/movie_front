@@ -24,11 +24,12 @@
 import Menu from '@/components/Menu.vue'
 import Search from '@/components/Search.vue'
 
+
 export default {
   name: 'Home',
   components: {
     Search,
-    Menu
+    Menu,
 
   },
 }
