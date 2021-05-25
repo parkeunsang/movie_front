@@ -32,11 +32,12 @@
         </li>
       </ul>
     </VueMulticlick>
-    <button @click="submitData">찾기</button>
+    <button @click="getRecommendMovies(selectedItems)">찾기</button>
   </div>
 </template>
 <script>
-import VueMulticlick from "../dist";
+import VueMulticlick from "../dist"
+import { mapActions } from 'vuex'
 export default {
   components: {
     VueMulticlick
@@ -45,7 +46,6 @@ export default {
     return {
       selectedItems: [],
       items: [
-        { name: "반전", id: 1 },
         { name: "비올때", id: 2 },
         { name: "슬플때", id: 3 },
         { name: "기쁠때", id: 4 },
@@ -54,7 +54,8 @@ export default {
         { name: "G", id: 7 },
         { name: "H", id: 8 },
         { name: "I", id: 9 },
-        { name: "J", id: 10 }
+        { name: "J", id: 10 },
+        { name: "반전", id: 11 }
       ]
     };
   },
@@ -64,10 +65,9 @@ export default {
     }
   },
   methods: {
-    submitData(){
-      console.log(this.selectedItems)
-    }
-  }
+      ...mapActions(['getRecommendMovies'])
+      // console.log(this.selectedItems)
+  },
 };
 </script>
 <style scoped>

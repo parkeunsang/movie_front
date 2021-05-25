@@ -25,6 +25,7 @@ const actions = {
 
   createArticle({ getters }, articleData) {
     axios.post(DRF.URL + DRF.ROUTES.articles, articleData, getters.config)
+      console.log(getters.config)
       .then(() => router.push({ name: 'Board' }))  
       .catch(err => console.error(err))
   }
