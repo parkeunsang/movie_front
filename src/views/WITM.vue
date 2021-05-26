@@ -1,7 +1,7 @@
 <template>
-  <!-- <div>
+  <div>
     <LoadingScreen :isLoading="isLoading" />
-    <div v-if="!isLoading"> -->
+    <div v-if="!isLoading">
       <div>
         <NavMenu/>
         <div class="container">
@@ -13,18 +13,18 @@
 
         </div>
       </div>
-    <!-- </div>
-  </div> -->
+    </div>
+  </div>
 </template>
 
 <script>
 import NavMenu from '@/components/NavMenu.vue'
-// import LoadingScreen from '@/components/LoadingScreen.vue'
+import LoadingScreen from '@/components/LoadingScreen.vue'
 export default {
   name: 'WITM',
   components: {
     NavMenu,
-    // LoadingScreen
+    LoadingScreen
   },
   computed: {
     movies() {

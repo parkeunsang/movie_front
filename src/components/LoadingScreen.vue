@@ -16,7 +16,7 @@
 
 <style>
   .loader {
-  
+    background-color: #1d1e1f;
     bottom: 0;
     color: white;
     display: block;
@@ -31,7 +31,7 @@
   }
 
   .fadeout {
-    animation: fadeout 4s forwards;
+    animation: fadeout 3s forwards;
   }
 
   @keyframes fadeout {

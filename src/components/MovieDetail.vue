@@ -21,7 +21,8 @@
       
     </div>
     <div class="row mt-3">
-      <p>줄거리 : {{ movie.overview }}</p>
+      <hr>
+      <p>{{ movie.overview }}</p>
     </div>
   </div>
 </div>
