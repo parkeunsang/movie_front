@@ -6,13 +6,9 @@
         <div class="col-6">
           <Search />
         </div>
-        <div class="col-6 menu">
-          <div class="">
-            <div class="row">
-              <div>
-                <Menu/>
-              </div>
-            </div>
+        <div class="col-6">
+          <div class="row">
+              <Menu/>
           </div>
         </div>
       </div>
