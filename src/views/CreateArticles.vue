@@ -1,21 +1,21 @@
 <template>
-  <div>
-    <h1>New Article</h1>
-    {{ articleData }}
+  <div class="font container mt-5" >
+    <img src="../../images/새글사진.jpg" class="img-fluid mb-5" width="100%">
+
     <div>
-      <label for="title">제목:</label>
-      <input v-model="articleData.title" value="123" id="title" type="text" >
+      <input v-model="articleData.title" value="123" id="title" type="text" placeholder="   제목을 입력하세요" style="width:100%;">
     </div>
+    <br>
     <div>
-      <label for="articleContent">내용:</label>
-      <textarea v-model="articleData.content" id="articleContent" cols="30" rows="10"></textarea>
+      <textarea v-model="articleData.content" id="articleContent" cols="30" rows="10" placeholder="   내용을 입력하세요" style="width:100%;"></textarea>
+      
     </div>
     <!-- <div>
       <label for="movie">영화제목:</label>
       <input v-model="articleData.movie" id="movie" type="text" />
     </div> -->
     <div>
-      <button @click="createArticle(articleData)">Submit!</button>
+        <button @click="createArticle(articleData)" class="btn btn-warning" style="float: right;">Submit!</button>
     </div>
   </div>
 </template>
@@ -47,3 +47,16 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  @font-face {
+    font-family: 'Bazzi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/Bazzi.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  .font {
+    font-family: 'Bazzi';
+    color: rgb(255, 255, 255);
+  }
+</style>
