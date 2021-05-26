@@ -1,21 +1,20 @@
-<template>
-  <div class="Background">
-    <h1>Main</h1>
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <Search />
-        </div>
-        <div class="col-6">
-          <div class="row">
-              <Menu/>
-          </div>
-        </div>
+<template >
+<div class="Background">
+  <div class="container" >
+    <div class="row">
+      <div class="col-8">
+
+        <div class="search"><Search/></div>
+        
       </div>
+      <div class="col-4"><Menu/></div>
     </div>
-    
   </div>
+  
+  
+</div>
 </template>
+
 
 <script>
 import Menu from '@/components/Menu.vue'
@@ -37,11 +36,16 @@ export default {
     height: 100vh;
     background-image: url('../../images/메인배경.png');
     background-repeat : no-repeat;
-    background-size : cover;
+    background-size : contain;
+    background-position: center center;
   }
-  .menu {
-    height: 50vh;
-    background-image: url('../../images/메뉴판.png');
-    background-repeat : no-repeat;
+
+  .search {
+    position: absolute;
+    top: 70%;
+    left: 30%;
+    width: 800px;
+    
   }
+
 </style>
