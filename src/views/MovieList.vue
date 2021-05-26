@@ -91,6 +91,7 @@ export default {
     axios.get(`http://127.0.0.1:8000/movies/search/${this.picked}/${this.inputValue}`)
       .then((res) => {
         this.movies = res.data
+        console.log(res)
         // this.movie = this.movies[0]
       })
     // console.log( this.$store.state.keywords.picked)

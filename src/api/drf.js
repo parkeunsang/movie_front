@@ -6,6 +6,7 @@ export default {
     login: 'rest-auth/login/',
     logout: 'rest-auth/logout/',
     articles: 'board/articles/',
-    article: `board/articles/`
+    article: `board/articles/`,
+    recommend: `recommends/keywords/`
   }
 }
