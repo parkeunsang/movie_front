@@ -1,32 +1,23 @@
 <template>
-  <div>
-    <div class="d-grid gap-4">
-      <RouterLink :to="{name: 'Home'}" class="btn btn-outline-light btn-lg text-left">1. Home</RouterLink>
-      <RouterLink :to="{name: 'Board'}" class="btn btn-outline-light btn-lg">Board</RouterLink>
-      <RouterLink v-if="!isLoggedIn" :to="{name: 'Login'}" tag="button" 
-        class="btn btn-outline-light">Login</RouterLink>
-      <a class="btn btn-outline-light" href="#" @click="getRecentMovies">Recent Movies</a>
-      <RouterLink :to="{name: 'Recommend'}" tag="button" class="btn btn-outline-light">Recommend</RouterLink>
-      <RouterLink v-if="!isLoggedIn" :to="{name: 'SignUp'}" tag="button"
-        class="btn btn-outline-light">SignUp</RouterLink> 
-      <RouterLink v-if="isLoggedIn" :to="{name: 'Logout'}" tag="button"
-        class="btn btn-outline-light">Logout</RouterLink> 
-    </div>
-   <hr>
-    <ul class="list-group list-group-flush">
-      <RouterLink :to="{name: 'Home'}" class="nounderline">
-        <li class="list-group-item bg-transparent no-border">1. Home</li>
-      </RouterLink>
-      <hr>
-      <RouterLink :to="{name: 'MovieList'}" class="nounderline">
-        <li class="list-group-item bg-transparent no-border">2. MovieList</li>
-      </RouterLink>
-      <hr>
-      <li class="list-group-item bg-transparent">A third item</li>
-      <li class="list-group-item">A fourth item</li>
-      <li class="list-group-item">And a fifth one</li>
-    </ul>
+  <div class="menu">
+    <div class="container">
+      <div class="row mt-2">
+        <div class="col-8 ps-5 mt-5">
+          <div class="d-grid gap-2 fontcheck mt-5">
 
+            <div class="mt-5"></div>
+            <div class="mt-2"></div> 
+            <RouterLink :to="{name: 'Home'}" class="btn btn-outline-light btn-lg">HOME</RouterLink>
+            <RouterLink :to="{name: 'Board'}" class="btn btn-outline-light btn-lg">BOARD</RouterLink>
+            <RouterLink :to="{name: 'MovieList'}" tag="button" class="btn btn-outline-light btn-lg">MOVIELIST</RouterLink>
+            <RouterLink :to="{name: 'Recommend'}" tag="button" class="btn btn-outline-light btn-lg">RECOMMEND</RouterLink>
+            <RouterLink v-if="!isLoggedIn" :to="{name: 'Login'}" class="btn btn-outline-light btn-lg" btn-lg>LOGIN</RouterLink>
+            <RouterLink v-if="!isLoggedIn" :to="{name: 'SignUp'}" class="btn btn-outline-light btn-lg">SIGNUP</RouterLink>
+            <RouterLink v-if="isLoggedIn" :to="{name: 'Logout'}" class="btn btn-outline-light btn-lg">LOGOUT</RouterLink>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   
 </template>
@@ -52,7 +43,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .text-left {
   text-align: left !important;
   } 
@@ -63,5 +54,23 @@ export default {
     outline: 0;
     border: none;
     text-decoration:none;
+  }
+
+   .menu {
+    background-image: url('../../images/메뉴판.png');
+    background-repeat : no-repeat;
+    background-size : contain;
+    height: 90vh;
+  }
+
+  @font-face {
+    font-family: 'InkLipquid';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/InkLipquid.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .fontcheck {
+    font-family: 'InkLipquid';
   }
 </style>
