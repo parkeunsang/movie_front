@@ -1,13 +1,23 @@
 <template>
-  <div>
-    <RouterLink :to="{name: 'Home'}">Home | </RouterLink>
-    <RouterLink :to="{name: 'Board'}">Board | </RouterLink>
-    <RouterLink v-if="!isLoggedIn" :to="{name: 'Login'}">Login | </RouterLink>
-    <RouterLink :to="{name: 'MovieList'}">MovieList | </RouterLink>
-    <RouterLink :to="{name: 'Recommend'}">Recommend | </RouterLink>
-    <RouterLink v-if="!isLoggedIn" :to="{name: 'SignUp'}">SignUp</RouterLink>
-    <RouterLink v-if="isLoggedIn" :to="{name: 'Logout'}">Logout</RouterLink> 
-  
+  <div class="mb-3">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
+      <RouterLink :to="{name: 'Home'}" class="nav-item nav-link text-dark">Home</RouterLink>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <RouterLink :to="{name: 'Recommend'}" class="nav-item nav-link">Recommend</RouterLink>
+          <RouterLink :to="{name: 'MovieList'}" class="nav-item nav-link">MovieList</RouterLink>
+          <RouterLink :to="{name: 'Board'}" class="nav-item nav-link">Board</RouterLink>
+        </div>
+        <div class="navbar-nav">
+          <RouterLink  v-if="!isLoggedIn" :to="{name: 'Login'}" class="nav-item nav-link">Login</RouterLink>
+          <RouterLink  v-if="!isLoggedIn" :to="{name: 'SignUp'}" class="nav-item nav-link">SignUp</RouterLink>
+          <RouterLink  v-if="isLoggedIn" :to="{name: 'Logout'}" class="nav-item nav-link text-right">Logout</RouterLink>
+        </div>
+      </div>
+    </nav>
   </div>
   
 </template>
@@ -28,5 +38,7 @@ export default {
 </script>
 
 <style>
-
+.text-right {
+  text-align: right !important;
+}
 </style>
