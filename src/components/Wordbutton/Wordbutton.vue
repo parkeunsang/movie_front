@@ -1,8 +1,7 @@
 <template>
   <div class="container">
-    <h3>영화추천서비스</h3>
-    <p>오늘 당신이 보고싶은 영화는?</p>
-    <div>
+    <h3>오늘 당신이 보고싶은 영화는?</h3>
+    <div style="text-align:right;">
       {{ numSelected }} 개 선택
       <br /><br />
     </div>
@@ -18,8 +17,8 @@
         selectNone
       }"
     >
-      <button @click="selectAll">전부선택</button>
-      <button @click="selectNone">선택 초기화</button>
+      <button @click="selectAll" class="btn btn-warning me-2">전부선택</button>
+      <button @click="selectNone" class="btn btn-warning">선택 초기화</button>
       <br /><br />
       <ul>
         <li
@@ -32,7 +31,7 @@
         </li>
       </ul>
     </VueMulticlick>
-    <button @click="getRecommendMovies(selectedItems)">찾기</button>
+    <button @click="getRecommendMovies(selectedItems)" class="btn btn-warning mt-3" >찾기</button>
   </div>
 </template>
 <script>
@@ -71,36 +70,47 @@ export default {
 };
 </script>
 <style scoped>
-  @font-face {
+  /* @font-face {
       font-family: 'WandohopeB';
       src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/WandohopeB.woff') format('woff');
       font-weight: normal;
       font-style: normal;
+  } */
+
+  @font-face {
+    font-family: 'Bazzi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/Bazzi.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
   }
 
   .container {
-    font-family: 'WandohopeB';
+    font-family: 'Bazzi';
     max-width: 400px;
     width: 100%;
     margin: 50px auto;
+    color: rgb(255, 255, 255);
   }
 
   ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
-    border: 1px solid #ececec;
+    border: 1px solid #1d1e1f;
+    
   }
 
   li {
     cursor: pointer;
-    border-bottom: 1px solid #ececec;
+    border-bottom: 1px solid #1d1e1f;
     padding: 8px 16px;
     user-select: none;
+    background-color: #2c2e30;
+    border-radius:10em; 
   }
 
   li:nth-child(odd) {
-    background-color: #f5f5f5;
+    background-color: #494848;
   }
 
   li:last-of-type {
@@ -108,7 +118,7 @@ export default {
   }
 
   li.selected {
-    background-color: #f0b208;
+    background-color: #ffbb00b2;
     color: #fff;
   }
 </style>
