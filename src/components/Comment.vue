@@ -1,37 +1,34 @@
 <template>
   <div>
-    <NavMenu/>
-    {{ article.user}}
-    <p>제목 : {{ article.title }}</p>
-    <p>내용 : {{ article.content }}</p>
     <div>
-      <button @click="updateArticle(article.id)">수정</button>
-      <button @click="deleteArticle(article.id)">삭제</button>
+      <label for="commentArea">내용:</label> 
+      <textarea v-model="commentData.content" id="commentArea" cols="30" rows="10"></textarea>
     </div>
-    <Comment/>
+    <button @click="createComment(commentData)">댓글쓰기</button>
+    <p>댓글목록</p>
+    <p v-for="comment in comments" :key="comment.id">
+      내용 : {{ comment.content }}, 작성자: {{ comment.user }} 
+      <button @click="deleteComment(comment.comment_id)">삭제</button>
+    </p>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import NavMenu from '@/components/NavMenu.vue'
-import Comment from '@/components/Comment.vue'
 import { mapActions } from 'vuex'
+
 export default {
-  name: 'DetailArticle',
+  name: 'Comment',
   components:{
-    NavMenu,
-    Comment
   },
   data() {
     return {
-      article: '',
       comments: [],
       commentData: {content: '', article_pk: ''}
     }
   },
   methods: {
-    ...mapActions(['updateArticle','deleteArticle'])
+    ...mapActions(['createComment','deleteComment'])
   },
   created() {
     axios.get(`http://127.0.0.1:8000/board/articles/${this.$route.query.pk}/`)
