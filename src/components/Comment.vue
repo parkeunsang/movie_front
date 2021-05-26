@@ -18,12 +18,14 @@
           <th></th>
         </tr>
       </thead>
+      
       <tbody>
+        
         <tr v-for="comment in comments" :key="comment.id">
-          <td style="width: 10%;text-align: center;">{{ comment.user }}</td>
+          <td style="width: 10%;text-align: center;">{{ comment.user_name }}</td>
           <td style="width: 50%;text-align: left;">{{ comment.content }}</td>
-          <td style="width: 10%;text-align: center;">{{ comment.created_at }}</td>
-          <td style="width: 10%;text-align: center;">{{ comment.updated_at }}</td>
+          <td style="width: 10%;text-align: center;">{{ comment.created_at_simple }}</td>
+          <td style="width: 10%;text-align: center;">{{ comment.updated_at_simple }}</td>
           <td style="width: 10%;text-align: center;"><button @click="deleteComment(comment.comment_id)" class="btn btn-danger">삭제</button></td>
         </tr>
       </tbody>
@@ -55,7 +57,7 @@ export default {
         this.commentData.article_pk = String(this.article.id)
         axios.get(`http://127.0.0.1:8000/board/comment/${this.article.id}/`)
         .then(res => {
-          this.comments = res.data.data
+          this.comments = res.data
         })
       })
       .catch(err => console.error(err))

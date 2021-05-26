@@ -1,5 +1,6 @@
 <template>
   <div class="font container mt-5" >
+    <NavMenu/>
     <img src="../../images/새글사진.jpg" class="img-fluid mb-5" width="100%">
 
     <div>
@@ -22,9 +23,12 @@
 
 <script>
 import { mapActions } from 'vuex'
-
+import NavMenu from '@/components/NavMenu.vue'
 export default {
   name: 'CreateArticles',
+  components: {
+    NavMenu,
+  },
   data() {
     return {
       articleData: { 
