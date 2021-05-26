@@ -1,15 +1,15 @@
 <template>
-  <div>
+  <div class="Background">
     <h1>Main</h1>
     <div class="container">
       <div class="row">
         <div class="col-6">
           <Search />
         </div>
-        <div class="col-6">
-          <div class="container">
+        <div class="col-6 menu">
+          <div class="">
             <div class="row">
-              <div class="col-2">
+              <div>
                 <Menu/>
               </div>
             </div>
@@ -37,12 +37,15 @@ export default {
 </script>
 
 <style scoped>
- /* #bg {
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-    
-  min-width: 100%;
-  min-height: 100%;
-  } */
+  .Background {
+    height: 100vh;
+    background-image: url('../../images/메인배경.png');
+    background-repeat : no-repeat;
+    background-size : cover;
+  }
+  .menu {
+    height: 50vh;
+    background-image: url('../../images/메뉴판.png');
+    background-repeat : no-repeat;
+  }
 </style>
