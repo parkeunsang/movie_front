@@ -1,9 +1,10 @@
 <template>
   <div>
     <h1>New Article</h1>
+    {{ articleData }}
     <div>
       <label for="title">제목:</label>
-      <input v-model="articleData.title" id="title" type="text" />
+      <input v-model="articleData.title" value="123" id="title" type="text" >
     </div>
     <div>
       <label for="articleContent">내용:</label>
@@ -26,11 +27,23 @@ export default {
   name: 'CreateArticles',
   data() {
     return {
-      articleData: { title: '', content: '',}
+      articleData: { 
+        title: this.$store.getters.article.title ,
+        content: this.$store.getters.article.content,
+        pk: this.$store.getters.article.id,
+        method: '',
+        }
     }
   },
   methods: {
     ...mapActions(['createArticle'])
+  },
+  created() {
+    if (this.$store.getters.article.title === ''){
+      this.articleData.method = 'post'
+    } else{
+      this.articleData.method = 'put'
+    }
   }
 }
 </script>
