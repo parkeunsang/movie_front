@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <RouterLink :to="{name: 'Recommend'}" class="nav-item nav-link">Recommend</RouterLink>
-          <RouterLink :to="{name: 'MovieList'}" class="nav-item nav-link">MovieList</RouterLink>
+          <!-- <RouterLink :to="{name: 'MovieList'}" class="nav-item nav-link">MovieList</RouterLink> -->
           <a class="nav-link" href="#" @click="getRecentMovies">Recent Movies</a>
           <RouterLink :to="{name: 'Board'}" class="nav-item nav-link">Board</RouterLink>
         </div>

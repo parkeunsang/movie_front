@@ -18,16 +18,13 @@
     <div class="container big-margin">
       <div class="row row-cols-3 row-cols-md-5 g-3">
         <div class="col" v-for="movie in movies" :key="movie.id">
-          <div class="card card-bg p-0" style="width: 100%; height: 100%;" >
-              <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" class="card-img-top" alt="...">
+          <div class="card card-bg p-0" style="width: 100%; height: 100%;" 
+          data-bs-toggle="modal" data-bs-target="#exampleModal" @click="getDetail(movie)">
+              <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" class="card-img-top" alt="..."
+              onerror="this.src='https://i.ibb.co/60mkvdG/tmdb.jpg'">
               <div class="card-body">
                 <p class="card-title text-light">{{ movie.title_ko }}</p>
                 <p class="card-text text-light">점수 : {{ movie.score }}</p>
-
-                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                @click="getDetail(movie)">
-                  Detail
-                </button>
               </div>
           </div>
         </div>

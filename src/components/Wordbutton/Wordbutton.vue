@@ -35,6 +35,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
 import VueMulticlick from "../dist"
 import { mapActions } from 'vuex'
 export default {
@@ -44,6 +45,7 @@ export default {
   data() {
     return {
       selectedItems: [],
+      // items: []
       items: [
         { name: "비올때", id: 2 },
         { name: "슬플때", id: 3 },
@@ -67,6 +69,12 @@ export default {
       ...mapActions(['getRecommendMovies'])
       // console.log(this.selectedItems)
   },
+  created() {
+    axios.get('http://127.0.0.1:8000/recommends/keywords/')
+    .then(res => {
+      this.items = res.data.data
+    })
+  }
 };
 </script>
 <style scoped>

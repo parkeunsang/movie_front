@@ -16,11 +16,11 @@ const mutations = {
   },
   GET_MOVIES_BY_KEYWORDS(state, data){
     state.movieData = data
-    router.push('MovieList')
+    router.push('WITM')
   },
   GET_RECENT_MOVIES(state, data) {
     state.movieData = data
-    router.push('MovieList')
+    
   }
 }
 
@@ -48,6 +48,7 @@ const actions = {
     .then((res) => {
       const data = res.data
       commit('GET_RECENT_MOVIES', data)
+      router.push('MovieList')
     })
     .catch((res) => console.log(res.error))
   }

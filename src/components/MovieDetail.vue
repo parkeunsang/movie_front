@@ -4,7 +4,8 @@
     <div class="row">
     <div class="col-4">
 
-    <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" class="card-img-top" alt="...">
+    <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" class="card-img-top" alt="..."
+    onerror="this.src='https://i.ibb.co/60mkvdG/tmdb.jpg'">
     </div>
     <div class="col-7">
         <h2>{{ movie.title }}</h2>

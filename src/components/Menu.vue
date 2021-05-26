@@ -9,7 +9,8 @@
             <div class="mt-2"></div> 
             <RouterLink :to="{name: 'Home'}" class="btn btn-outline-light btn-lg">HOME</RouterLink>
             <RouterLink :to="{name: 'Board'}" class="btn btn-outline-light btn-lg">BOARD</RouterLink>
-            <RouterLink :to="{name: 'MovieList'}" tag="button" class="btn btn-outline-light btn-lg">MOVIELIST</RouterLink>
+            <!-- <RouterLink :to="{name: 'MovieList'}" tag="button" class="btn btn-outline-light btn-lg">MOVIELIST</RouterLink> -->
+            <a class="btn btn-outline-light btn-lg" href="#" @click="getRecentMovies">Recent Movies</a>
             <RouterLink :to="{name: 'Recommend'}" tag="button" class="btn btn-outline-light btn-lg">RECOMMEND</RouterLink>
             <RouterLink v-if="!isLoggedIn" :to="{name: 'Login'}" class="btn btn-outline-light btn-lg" btn-lg>LOGIN</RouterLink>
             <RouterLink v-if="!isLoggedIn" :to="{name: 'SignUp'}" class="btn btn-outline-light btn-lg">SIGNUP</RouterLink>
