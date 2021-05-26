@@ -1,29 +1,37 @@
 <template>
   <div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="title" v-model="picked" checked>
-      <label class="form-check-label" for="flexRadioDefault1">
-        영화 제목
-      </label>
+    <div class="row mb-3">
+      <div class="form-check col-3 ml-5">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="title" v-model="picked" checked>
+        <label class="form-check-label" for="flexRadioDefault1">
+          영화 제목
+        </label>
+      </div>
+      <div class="form-check col">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="keywords" v-model="picked">
+        <label class="form-check-label" for="flexRadioDefault2">
+          키워드
+        </label>
+      </div>
     </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="keywords" v-model="picked">
-      <label class="form-check-label" for="flexRadioDefault2">
-        키워드
-      </label>
-    </div>
-
-    <input class="form-control" list="datalistOptions" v-model="inputValue" type="text" @input="searchMovie"
-      placeholder="Type to search...">
-      <datalist id="datalistOptions" v-if="picked==='title'">
-        <option v-for="word in searchWords" :key="word.id">
-          {{ word.title_ko }}
-        </option>
-      </datalist>
-    <RouterLink :to="{name: 'MovieList'}">
-      <button @click="getKeywords({picked, inputValue})">검색</button>
-    </RouterLink>
-      
+    <form class="row g-3">
+      <div class="col-auto">
+        <input class="form-control" list="datalistOptions" v-model="inputValue" type="text" @input="searchMovie"
+          placeholder="Type to search...">
+        <datalist id="datalistOptions" v-if="picked==='title'">
+          <option v-for="word in searchWords" :key="word.id">
+            {{ word.title_ko }}
+          </option>
+        </datalist>
+      </div>
+      <div class="col-auto">  
+      <RouterLink :to="{name: 'MovieList'}">
+        <button class="btn btn-light" @click="getKeywords({picked, inputValue})">
+          <i class="fas fa-search"></i>
+        </button>
+      </RouterLink>
+      </div>
+    </form>
   </div>
 </template>
 <script>

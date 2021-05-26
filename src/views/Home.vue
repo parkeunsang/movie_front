@@ -7,12 +7,8 @@
           <Search />
         </div>
         <div class="col-6">
-          <div class="container">
-            <div class="row">
-              <div class="col-2">
-                <Menu/>
-              </div>
-            </div>
+          <div class="row">
+              <Menu/>
           </div>
         </div>
       </div>
