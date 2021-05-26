@@ -1,50 +1,44 @@
 <template>
-  <div>
+  <!-- <div>
     <LoadingScreen :isLoading="isLoading" />
     <div v-if="!isLoading">
-   
-      <div>
-        <NavMenu/>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{ movie.title }}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <MovieDetail :movie="movie"/>
-              </div>
-            </div>
+    -->
+  <div>
+    <NavMenu/>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" 
+      aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{ movie.title }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-        </div>
-
-
-        <div class="container">
-          <div class="row" v-if="picked==='title'">
-            <div class="card col-3" style="width: 18rem;" v-for="movie in movies" :key="movie.id">
-                <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">{{ movie.title_ko }}</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                  @click="getDetail(movie)">
-                    Detail
-                  </button>
-                </div>
-            </div>
+          <div class="modal-body">
+            <MovieDetail v-if="movie!==''" :movie="movie"/>
           </div>
-          <div class="row" v-if="picked==='keywords'">
-              <div v-for="img_link in movies.img_list" :key=img_link>
-                <img :src="`https://www.whatismymovie.com/${img_link}`" alt="...">
-              </div>
-              {{ movies.img_list }}
-
-          </div>
-
         </div>
       </div>
-
+    </div>
+    
+    <div class="container big-margin">
+      <div class="row row-cols-3 row-cols-md-5 g-3">
+        <div class="col" v-for="movie in movies" :key="movie.id">
+          <div class="card card-bg p-0" style="width: 100%; height: 100%;" >
+              <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-title text-light">{{ movie.title_ko }}</p>
+                <p class="card-text text-light">
+                  {{ movie.description | truncate(30) }}
+                </p>
+                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                @click="getDetail(movie)">
+                  Detail
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
 </template>
@@ -53,21 +47,31 @@
 import NavMenu from '@/components/NavMenu.vue'
 import MovieDetail from '@/components/MovieDetail.vue'
 import axios from 'axios'
+
 const API_KEY = process.env.VUE_APP_TMDB_KEY
 
-import LoadingScreen from '@/components/LoadingScreen.vue'
+// import LoadingScreen from '@/components/LoadingScreen.vue'
 
 export default {
   name: 'MovieList',
   components: {
     NavMenu,
     MovieDetail,
-    LoadingScreen
+    // LoadingScreen
   },
   data() {
     return {
-      movies: '',
-      movie: {},
+      movie: '',
+    }
+  },
+  filters: { 
+    truncate: function(string, value) {
+      if (string.length > value) {
+        return string.substring(0, value) + '...';
+      } else {
+        return string
+      }
+        
     }
   },
   methods: {
@@ -78,29 +82,31 @@ export default {
         this.movie = res.data
       })
     },
+
   },
   computed: {
-    picked() {
-      return this.$store.state.keywords.picked
+    movies() {
+      return this.$store.state.keywords.movieData
     },
-    inputValue() {
-      return this.$store.state.keywords.inputValue
-    }
+    listType() {
+      return this.$store.state.keywords.listType
+    },
   },
-  created() {
-    axios.get(`http://127.0.0.1:8000/movies/search/${this.picked}/${this.inputValue}`)
-      .then((res) => {
-        this.movies = res.data
-        console.log(res)
-        // this.movie = this.movies[0]
-      })
-    // console.log( this.$store.state.keywords.picked)
-    // console.log( this.$store.state.keywords.inputValue)
-  },
-  
 }
 </script>
 
-<style>
+<style scoped>
+  img{
+   height: 18em; 
+   box-shadow: 5px 5px 5px #555;
+   border-radius: 8%;
+  }
+  .big-margin{
+    margin-top: 5em;
+  }
+
+  .card-bg{
+    background-color: #1d1e1f;
+  }
 
 </style>

@@ -25,18 +25,18 @@
         </datalist>
       </div>
       <div class="col-auto">  
-      <RouterLink :to="{name: 'MovieList'}">
-        <button class="btn btn-light" @click="getKeywords({picked, inputValue})">
+        <button class="btn btn-light" @click="searchByTitleOrKeywords">
           <i class="fas fa-search"></i>
         </button>
-      </RouterLink>
       </div>
+      
     </form>
+    
   </div>
 </template>
 <script>
 import axios from 'axios'
-import { mapActions } from 'vuex'
+// import { mapActions } from 'vuex'
 export default {
   name: 'Search',
   components: {
@@ -49,7 +49,6 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getKeywords']),
     searchMovie(event) {
       if (this.picked==='title') {
         if (event.target.value !== '') {
@@ -59,7 +58,16 @@ export default {
         })
         }
       }
+    },
+    searchByTitleOrKeywords(event) {
+    event.preventDefault()
+    if (this.picked === 'title'){
+      this.$store.dispatch('getMoviesByTitle', this.inputValue)
+    } else {
+      this.$store.dispatch('getMoviesByKeywords', this.inputValue)
     }
+    },
+   
   }
 }
 </script>

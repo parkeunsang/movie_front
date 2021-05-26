@@ -4,7 +4,8 @@
     <div>
       <ul>
         <li v-for="article in articles" :key="`article_${article.id}`">
-          {{ article.title }} {{ article.id }}
+          <!-- 제목 : <span @click="articleDetail(article.pk)">{{ article.title }}</span> -->
+          <RouterLink :to="{name: 'DetailArticle', query: {pk: article.id }}" > {{article.title}} </RouterLink>
         </li>
       </ul>
     </div>
@@ -27,7 +28,10 @@ export default {
     ...mapGetters(['articles'])
   },
   methods: {
-    ...mapActions(['fetchArticles'])
+    ...mapActions(['fetchArticles']),
+    articleDetail(article_pk) {
+      console.log(article_pk)
+    }
   },
   created() {
     this.fetchArticles()
