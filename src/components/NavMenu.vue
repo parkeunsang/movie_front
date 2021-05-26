@@ -1,6 +1,6 @@
 <template>
   <div class="mb-big">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light container">
       <RouterLink :to="{name: 'Home'}" class="nav-item nav-link text-dark">Home</RouterLink>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

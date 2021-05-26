@@ -31,7 +31,7 @@
         </li>
       </ul>
     </VueMulticlick>
-    <button @click="getRecommendMovies(selectedItems)" class="btn btn-warning mt-3" >찾기</button>
+    <button @click="getRecommendMovies(selectedItems)" class="btn btn-warning mt-3" style="float: right;" >찾기</button>
   </div>
 </template>
 <script>
