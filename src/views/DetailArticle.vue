@@ -4,8 +4,10 @@
     <div class="container font">
       <img src="../../images/보드디테일.jpeg" class="img-fluid mb-3" width="100%">
       <p class="ms-3" style="font-size:30px">{{ article.title }}</p>
-      <p>{{ article.username }}</p>
-      <p class="me-3" style="text-align:right;font-size:13px">생성일자: {{ article.created_at }} 수정일자: {{ article.updated_at }}</p>
+      <p>작성자 : {{ article.user_name }}</p>
+      <p class="me-3" style="text-align:right;font-size:13px">생성일자: {{ article.created_at_simple }}</p>
+      <p class="me-3" style="text-align:right;font-size:13px">수정일자: {{ article.updated_at_simple }}</p>
+      
       <hr>
       <div class="px-3 box mb-3" style="font-size:20px">{{ article.content }}</div>
       <div>

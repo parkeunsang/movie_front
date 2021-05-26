@@ -20,7 +20,8 @@
         <form class="row g-3">
 
           <div class="col-9">
-            <input class="deco" list="datalistOptions" v-model="inputValue" type="text" @input="searchMovie">
+            <input class="deco" list="datalistOptions" v-model="inputValue" type="text" @input="searchMovie"
+            @keydown.enter="searchByTitleOrKeywords">
             <datalist id="datalistOptions" v-if="picked==='title'">
               <option v-for="word in searchWords" :key="word.id">
                 {{ word.title_ko }}

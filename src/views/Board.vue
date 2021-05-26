@@ -13,11 +13,12 @@
           </tr>
         </thead>
         <tbody>
+          
           <tr v-for="article in articles" :key="`article_${article.id}`">
             <th style="width: 10%;text-align: center;" scope="row">{{ article.id }}</th>
             <td style="width: 50%;text-align: center;"><RouterLink :to="{name: 'DetailArticle', query: {pk: article.id }}" style="display: inline-block;text-decoration:none;color:white"> {{article.title}}  </RouterLink></td>
-            <td style="width: 20%;text-align: center;">{{ article.user.username }}</td>
-            <td style="width: 20%;text-align: center;">{{ article.created_at }}</td>
+            <td style="width: 20%;text-align: center;">{{ article.user_name }}</td>
+            <td style="width: 20%;text-align: center;">{{ article.created_at_simple }}</td>
             
           </tr>
         </tbody>
