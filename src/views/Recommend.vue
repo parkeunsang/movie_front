@@ -26,6 +26,9 @@ export default {
       return this.$store.state.recommend.firstPage
     },
   },
+  created() {
+    this.$store.dispatch('recommendInit')
+  }
 }
 </script>
 

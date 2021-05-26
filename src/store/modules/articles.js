@@ -1,4 +1,5 @@
 import axios from 'axios'
+// import cookies from 'vue-cookies'
 import router from '@/router'
 import DRF from '@/api/drf'
 
@@ -24,11 +25,24 @@ const actions = {
   },
 
   createArticle({ getters }, articleData) {
+    console.log(DRF.URL + DRF.ROUTES.articles, getters)
     axios.post(DRF.URL + DRF.ROUTES.articles, articleData, getters.config)
-      console.log(getters.config)
-      .then(() => router.push({ name: 'Board' }))  
+      .then(() => router.push({ name: 'Board' }))
       .catch(err => console.error(err))
-  }
+  },
+  // createComment({ getters }, commentData) {
+  //   console.log(DRF.URL + DRF.ROUTES.articles, getters)
+  //   axios.post(DRF.URL + DRF.ROUTES.articles, articleData, getters.config)
+  //     .then(() => router.push({ name: 'Board' }))
+  //     .catch(err => console.error(err))
+  // },
+
+  // createComment({ getters }, commentData) {   
+  //   console.log(DRF.URL + DRF.ROUTES.comment, commentData)
+  //   axios.post(DRF.URL + DRF.ROUTES.comment, commentData, getters.config)
+  //     .then(() => {console.log('zz')})  
+  //     .catch(err => console.error(err))
+  // }
 }
 
 export default {

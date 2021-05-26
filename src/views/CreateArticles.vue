@@ -6,8 +6,8 @@
       <input v-model="articleData.title" id="title" type="text" />
     </div>
     <div>
-      <label for="content">내용:</label>
-      <textarea v-model="articleData.content" id="content" cols="30" rows="10"></textarea>
+      <label for="articleContent">내용:</label>
+      <textarea v-model="articleData.content" id="articleContent" cols="30" rows="10"></textarea>
     </div>
     <!-- <div>
       <label for="movie">영화제목:</label>

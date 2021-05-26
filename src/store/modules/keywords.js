@@ -1,8 +1,8 @@
-
+import axios from 'axios'
+import router from '@/router'
 
 const state = {
-  picked: '',
-  inputValue: '',
+  movieData: [],
 }
 
 const getters = {
@@ -10,15 +10,46 @@ const getters = {
 }
 
 const mutations = {
-  GET_KEYWORDS(state, {picked, inputValue}){
-    state.picked = picked
-    state.inputValue = inputValue
+  GET_MOVIES_BY_TITLE(state, data){
+    state.movieData = data
+    router.push('MovieList')
+  },
+  GET_MOVIES_BY_KEYWORDS(state, data){
+    state.movieData = data
+    router.push('MovieList')
+  },
+  GET_RECENT_MOVIES(state, data) {
+    state.movieData = data
+    router.push('MovieList')
   }
 }
 
 const actions = {
-  getKeywords({ commit }, {picked, inputValue}){
-    commit('GET_KEYWORDS', {picked, inputValue})
+  getMoviesByTitle({ commit }, inputValue){
+    axios.get(`http://127.0.0.1:8000/movies/search/title/${inputValue}`)
+    .then((res) => {
+      const data = res.data
+      commit('GET_MOVIES_BY_TITLE', data)
+    })
+    .catch((res) => console.log(res.error))
+  },
+
+  getMoviesByKeywords({ commit }, inputValue){
+    axios.get(`http://127.0.0.1:8000/movies/search/keywords/${inputValue}`)
+    .then((res) => {
+      const data = res.data
+      commit('GET_MOVIES_BY_KEYWORDS', data)
+    })
+    .catch((res) => console.log(res.error))
+  },
+
+  getRecentMovies({ commit }){
+    axios.get(`http://127.0.0.1:8000/movies/recent/`)
+    .then((res) => {
+      const data = res.data
+      commit('GET_RECENT_MOVIES', data)
+    })
+    .catch((res) => console.log(res.error))
   }
 }
 

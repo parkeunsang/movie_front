@@ -15,7 +15,7 @@
           키워드
         </label>
       </div>
-    
+      
       <div class="col-12">
         <form class="row g-3">
 
@@ -30,7 +30,7 @@
 
           <div class="col-3">
             <RouterLink :to="{name: 'MovieList'}">
-              <button class="btn btn-light" type="button" @click="getKeywords({picked, inputValue})">
+              <button class="btn btn-light" type="button" @click="searchByTitleOrKeywords">
                 <i class="fas fa-search"></i>
               </button>
             </RouterLink>
@@ -40,11 +40,12 @@
       </div>
 
     </div>
+
   </div>
 </template>
 <script>
 import axios from 'axios'
-import { mapActions } from 'vuex'
+// import { mapActions } from 'vuex'
 export default {
   name: 'Search',
   components: {
@@ -57,7 +58,6 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getKeywords']),
     searchMovie(event) {
       if (this.picked==='title') {
         if (event.target.value !== '') {
@@ -67,7 +67,16 @@ export default {
         })
         }
       }
+    },
+    searchByTitleOrKeywords(event) {
+    event.preventDefault()
+    if (this.picked === 'title'){
+      this.$store.dispatch('getMoviesByTitle', this.inputValue)
+    } else {
+      this.$store.dispatch('getMoviesByKeywords', this.inputValue)
     }
+    },
+   
   }
 }
 </script>

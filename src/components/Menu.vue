@@ -14,7 +14,6 @@
             <RouterLink v-if="!isLoggedIn" :to="{name: 'Login'}" class="btn btn-outline-light btn-lg" btn-lg>LOGIN</RouterLink>
             <RouterLink v-if="!isLoggedIn" :to="{name: 'SignUp'}" class="btn btn-outline-light btn-lg">SIGNUP</RouterLink>
             <RouterLink v-if="isLoggedIn" :to="{name: 'Logout'}" class="btn btn-outline-light btn-lg">LOGOUT</RouterLink>
-
           </div>
         </div>
       </div>
@@ -33,6 +32,12 @@ export default {
   computed: {
     ...mapGetters(['isLoggedIn', ])
   },
+ methods: {
+  getRecentMovies(event) {
+  event.preventDefault()
+  this.$store.dispatch('getRecentMovies')
+  },
+}
   
 
 }
