@@ -5,7 +5,7 @@
       <RouterLink :to="{name: 'Board'}" class="btn btn-outline-light btn-lg">Board</RouterLink>
       <RouterLink v-if="!isLoggedIn" :to="{name: 'Login'}" tag="button" 
         class="btn btn-outline-light">Login</RouterLink>
-      <RouterLink :to="{name: 'MovieList'}" tag="button" class="btn btn-outline-light">MovieList</RouterLink>
+      <a class="btn btn-outline-light" href="#" @click="getRecentMovies">Recent Movies</a>
       <RouterLink :to="{name: 'Recommend'}" tag="button" class="btn btn-outline-light">Recommend</RouterLink>
       <RouterLink v-if="!isLoggedIn" :to="{name: 'SignUp'}" tag="button"
         class="btn btn-outline-light">SignUp</RouterLink> 
@@ -41,6 +41,12 @@ export default {
   computed: {
     ...mapGetters(['isLoggedIn', ])
   },
+ methods: {
+  getRecentMovies(event) {
+  event.preventDefault()
+  this.$store.dispatch('getRecentMovies')
+  },
+}
   
 
 }

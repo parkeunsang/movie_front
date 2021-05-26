@@ -6,8 +6,10 @@ import store from '@/store'
 import Home from '../views/Home.vue'
 import Board from '../views/Board.vue'
 import CreateArticles from '../views/CreateArticles.vue'
+import DetailArticle from '../views/DetailArticle.vue'
 import Login from '../views/Login.vue'
 import MovieList from '../views/MovieList.vue'
+import WITM from '../views/WITM.vue'
 import Recommend from '../views/Recommend.vue'
 import SignUp from '../views/SignUp.vue'
 import Logout from '../views/Logout.vue'
@@ -37,6 +39,11 @@ const routes = [
     component: MovieList
   },
   {
+    path: '/WITM',
+    name: 'WITM',
+    component: WITM
+  },
+  {
     path: '/Recommend',
     name: 'Recommend',
     component: Recommend
@@ -55,6 +62,12 @@ const routes = [
     path: '/Board/create',
     name: 'Create',
     component: CreateArticles
+  },
+  {
+    path: '/Board/detail',
+    name: 'DetailArticle',
+    component: DetailArticle,
+    props:true
   },
 
 ]

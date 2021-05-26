@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-3">
+  <div class="mb-big">
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
       <RouterLink :to="{name: 'Home'}" class="nav-item nav-link text-dark">Home</RouterLink>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,6 +9,7 @@
         <div class="navbar-nav">
           <RouterLink :to="{name: 'Recommend'}" class="nav-item nav-link">Recommend</RouterLink>
           <RouterLink :to="{name: 'MovieList'}" class="nav-item nav-link">MovieList</RouterLink>
+          <a class="nav-link" href="#" @click="getRecentMovies">Recent Movies</a>
           <RouterLink :to="{name: 'Board'}" class="nav-item nav-link">Board</RouterLink>
         </div>
         <div class="navbar-nav">
@@ -32,6 +33,12 @@ export default {
   computed: {
     ...mapGetters(['isLoggedIn', ])
   },
+  methods: {
+    getRecentMovies(event) {
+    event.preventDefault()
+    this.$store.dispatch('getRecentMovies')
+    }
+  }
   
 
 }
@@ -40,5 +47,8 @@ export default {
 <style>
 .text-right {
   text-align: right !important;
+}
+.mb-big {
+  margin-bottom: 5em;
 }
 </style>
