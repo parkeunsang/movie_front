@@ -17,16 +17,15 @@
         <p>예산 : {{ toMoney(movie.budget) }}</p>
         <p>수익: {{ toMoney(movie.revenue) }}</p>        
         <p>TMDB 평점 : {{ movie.vote_average }}</p>
-        <p>사이트 유저 평점 : something</p>
 
-        <p style="text-align:right;font-size:1vmax">{{ scoretotext(userscoreData.value) }}</p>
- 
+        <p>사이트 유저 평점 : something</p>
+        <p style="text-align:right;font-size:1vmax">{{ scoretotext(value) }}</p>
         <div class="slidecontainer" style="position:absolute;right:10%">
-          <input type="range" value='5' class="form-range" min="0" max="10" v-model="userscoreData.value" step="1" id="userscore">
+          <input type="range" value='5' class="form-range" min="0" max="10" v-model="value" step="1" id="userscore">
         </div>
         <br>
         
-        <button @click="evaluationScore(userscoreData)" class="btn btn-warning" style="float: right;">평점 매기기</button>
+        <button @click="evaluationScore({movie_id: movie.id, value: value})" class="btn btn-warning" style="float: right;">평점 매기기</button>
       
     </div>
     <div class="row mt-3">
@@ -44,14 +43,11 @@ import { mapActions } from 'vuex'
 export default {
   name: 'MovieDetail',
   props: {
-    movie: Object
+    movie: Object,
+    score: Object,
   },
-  data () {
-    return {
-      userscoreData:{value: '', movie_id: this.movie.id},
-
-    }
-
+  data() {
+    return {value: 0}
   },
   methods: {
     ...mapActions(['evaluationScore']),
