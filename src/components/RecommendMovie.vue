@@ -42,11 +42,14 @@
 import MovieDetail from '@/components/MovieDetail.vue'
 import axios from 'axios'
 
+import LoadingScreen from '@/components/LoadingScreen.vue'
+
 const API_KEY = process.env.VUE_APP_TMDB_KEY
 export default {
   name: 'MovieList',
   components: {
-    MovieDetail
+    MovieDetail,
+    LoadingScreen
   },
   data() {
     return {

@@ -18,22 +18,33 @@
         height: 100%;
         left: 0;
         top: 0;
+    
       }
 
       #loading-text {
         display: block;
         position: absolute;
-        top: 50%;
+        top: 49%;
         left: 50%;
-        color: #999;
+        color: rgb(255, 255, 255);
         width: 100px;
         height: 30px;
         margin: -7px 0 0 -45px;
         text-align: center;
-        font-family: 'PT Sans Narrow', sans-serif;
-        font-size: 20px;
+        font-family: 'Bazzi';
+        font-size: 30px;
+
+        z-index:100;
+    
       }
 
+      @font-face {
+        font-family: 'Bazzi';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/Bazzi.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+ 
       #loading-content {
         display: block;
         position: relative;
