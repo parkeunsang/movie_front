@@ -21,7 +21,7 @@
             <button type="submit" class="btn btn-primary" @click="signup(signupData)">Submit</button>
         </div>
         <div class="col-6">
-          <img src="../../images/회원가입.jpg" class="img-fluid mb-5" width="100%">
+          <img src="../../images/회원가입.png" class="img-fluid mb-5" width="100%">
         </div>
       </div>
         <!-- <div>

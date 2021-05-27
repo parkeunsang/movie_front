@@ -16,7 +16,7 @@
       <input v-model="articleData.movie" id="movie" type="text" />
     </div> -->
     <div>
-        <button @click="createArticle(articleData)" class="btn btn-warning" style="float: right;">Submit!</button>
+        <button @click="createArticle(articleData)" class="btn btn-warning" style="float: right;">작성완료</button>
     </div>
   </div>
 </template>
