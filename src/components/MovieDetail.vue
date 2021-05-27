@@ -19,9 +19,13 @@
         <p>TMDB 평점 : {{ movie.vote_average }}</p>
         <p>사이트 유저 평점 : something</p>
 
-        <div class="slidecontainer">
-          <input type="range" class="form-range" min="0" max="10" v-model="userscoreData.value" step="1" id="userscore">
+        <p style="text-align:right;font-size:1vmax">{{ scoretotext(userscoreData.value) }}</p>
+ 
+        <div class="slidecontainer" style="position:absolute;right:10%">
+          <input type="range" value='5' class="form-range" min="0" max="10" v-model="userscoreData.value" step="1" id="userscore">
         </div>
+        <br>
+        
         <button @click="evaluationScore(userscoreData)" class="btn btn-warning" style="float: right;">평점 매기기</button>
       
     </div>
@@ -45,6 +49,7 @@ export default {
   data () {
     return {
       userscoreData:{value: '', movie_id: this.movie.id},
+
     }
 
   },
@@ -61,6 +66,34 @@ export default {
         }
       }
       return result.split("").reverse().join("") + '원'
+    },
+    scoretotext(value) {
+      let scoretext = ''
+      let score = String(value)
+      if (score === '0') {
+        scoretext = '쓰레기'
+      } else if ( score === '1' ) {
+        scoretext = '다시는 보고싶지 않은 영화'
+      } else if ( score === '2' ) {
+        scoretext = '돈받고 볼 영화'
+      } else if ( score === '3' ) {
+        scoretext = '이거 볼 바에 공부할 영화'
+      } else if ( score === '4' ) {
+        scoretext = '공짜면 볼만한 영화'
+      } else if ( score === '5' ) {
+        scoretext = '나름 괜춘한 영화'
+      } else if ( score === '6' ) {
+        scoretext = '한번쯤 볼만한 영화'
+      } else if ( score === '7' ) {
+        scoretext = '걷다가 생각날 영화'
+      } else if ( score === '8' ) {
+        scoretext = '널리 알리고 싶은 영화'
+      } else if ( score === '9' ) {
+        scoretext = '다시 보고싶은 영화'
+      } else if ( score === '10' ) {
+        scoretext = '인생 영화'
+      }
+      return scoretext
     }
   },
   computed: {
@@ -73,6 +106,7 @@ export default {
       return genresString.slice(0, genresString.length-2)
     },
   },
+  
 }
 </script>
 
@@ -85,7 +119,7 @@ img {
   height: auto;
 }
 .slidecontainer {
-  width: 50%; 
+  width: 30%; 
 }
 .slider:hover {
   opacity: 1; 

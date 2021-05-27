@@ -34,7 +34,7 @@
 
   .fadeout {
     z-index:100;
-    animation: fadeout 4s forwards;
+    animation: fadeout 3s forwards;
   }
 
   @keyframes fadeout {
