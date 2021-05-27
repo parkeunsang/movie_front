@@ -1,9 +1,9 @@
 <template>
   <div>
     <LoadingScreen :isLoading="isLoading" />
-    <div v-if="!isLoading">
+    <div v-if="!isLoading" class="font">
         <NavMenu/>
-        <h2 class="text-light mb-5" style="text-align: center;">당신이 찾고자 하는 영화는</h2>
+        <h2 class="text-light mb-5" style="text-align: center;font-size:2vmax">당신이 찾고자 하는 영화는</h2>
         <div class="container">
           <div class="row">
           </div>
@@ -79,5 +79,15 @@ export default {
     height: 20em; 
     box-shadow: 5px 5px 5px #555;
     border-radius: 8%;
+  }
+  @font-face {
+    font-family: 'Bazzi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/Bazzi.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  .font {
+    font-family: 'Bazzi';
+    color: rgb(255, 255, 255);
   }
 </style>
