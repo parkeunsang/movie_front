@@ -9,7 +9,15 @@
       <p class="me-3" style="text-align:right;font-size:13px">수정일자: {{ article.updated_at_simple }}</p>
       
       <hr>
-      <div class="px-3 box mb-3" style="font-size:20px">{{ article.content }}</div>
+  
+      <table class="table font" style="table-layout:fixed;">
+        <tr>
+          <td class="px-3 box mb-3 py-3" style="font-size:20px;vertical-align:top;word-break:break-all;" height="auto">
+            {{ article.content }}
+          </td>
+        </tr>
+      </table>
+
       <div>
         <button @click="deleteArticle(article.id)" class="btn btn-warning ms-2" style="float: right;">삭제</button>
         <button @click="updateArticle(article.id)" class="btn btn-warning" style="float: right;">수정</button>

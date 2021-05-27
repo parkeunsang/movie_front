@@ -16,7 +16,7 @@
             <button type="submit" class="btn btn-primary" @click="login(loginData)">Login</button>
         </div>
         <div class="col-6">
-          <img src="../../images/로그인.jpg" class="img-fluid mb-5" width="100%">
+          <img src="../../images/로그인.png" class="img-fluid mb-5" width="100%">
         </div>
 
       </div>
