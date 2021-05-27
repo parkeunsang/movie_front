@@ -12,7 +12,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <MovieDetail v-if="movie!==''" :movie="movie"/>
+                <MovieDetail v-if="movie!==''" :movie="movie" :score="score"/>
               </div>
             </div>
           </div>
@@ -54,6 +54,7 @@ export default {
   data() {
     return {
       movie: '',
+      score: 0,
     }
   },
   methods: {
@@ -62,9 +63,13 @@ export default {
       axios.get(url)
       .then((res) => {
         this.movie = res.data
-        console.log(res.data)
+        this.score = movie.score
+        axios.get(`http://127.0.0.1:8000/movies/score/${movie.id}/`)
+        .then(res => {
+          this.score = res.data.score
+        })
       })
-    }
+    },
   },
   computed: {
     // ...mapState(['recommendMovies']),
