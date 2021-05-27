@@ -16,7 +16,7 @@
 
 <style>
   .loader {
-    background-color: #1d1e1f;
+    background-color: #ffef610c;
     bottom: 0;
     color: white;
     display: block;
@@ -28,10 +28,13 @@
     right: 0;
     text-align: center;
     top: 0;
+    z-index:100;
+
   }
 
   .fadeout {
-    animation: fadeout 3s forwards;
+    z-index:100;
+    animation: fadeout 4s forwards;
   }
 
   @keyframes fadeout {
@@ -40,4 +43,5 @@
       visibility: hidden;
     }
   }
+
 </style>

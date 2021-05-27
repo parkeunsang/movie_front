@@ -8,7 +8,7 @@
     <br>
     <hr>
     <div class="mt-2" style="font-size:40px">댓글 목록</div>
-    <table class="table font" >
+    <table class="table font" style="font-size:20px" >
       <thead>
         <tr>
           <th style="width: 10%;text-align: center;" scope="col">작성자</th>
@@ -23,9 +23,9 @@
         <tr v-for="comment in comments" :key="comment.id">
           <td style="width: 10%;text-align: center;">{{ comment.user_name }}</td>
           <td style="width: 50%;text-align: left;">{{ comment.content }}</td>
-          <td style="width: 10%;text-align: center;">{{ comment.created_at_simple }}</td>
-          <td style="width: 10%;text-align: center;">{{ comment.updated_at_simple }}</td>
-          <td style="width: 10%;text-align: center;"><button @click="deleteComment(comment.id)" class="btn btn-danger">삭제</button></td>
+          <td style="width: 15%;text-align: center;">{{ comment.created_at_simple }}</td>
+          <td style="width: 15%;text-align: center;">{{ comment.updated_at_simple }}</td>
+          <td style="width: 10%;text-align: center;"><button @click="deleteComment(comment.comment_id)" class="btn btn-danger">삭제</button></td>
         </tr>
       </tbody>
     </table>
