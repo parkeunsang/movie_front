@@ -18,7 +18,7 @@
         <p>수익: {{ toMoney(movie.revenue) }}</p>        
         <p>TMDB 평점 : {{ movie.vote_average }}</p>
 
-        <p>사이트 유저 평점 : something</p>
+        <p>사이트 유저 평점 : {{ score }}</p>
         <p style="text-align:right;font-size:1vmax">{{ scoretotext(value) }}</p>
         <div class="slidecontainer" style="position:absolute;right:10%">
           <input type="range" value='5' class="form-range" min="0" max="10" v-model="value" step="1" id="userscore">
