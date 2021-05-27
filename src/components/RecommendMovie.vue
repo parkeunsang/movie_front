@@ -49,7 +49,7 @@ export default {
   name: 'MovieList',
   components: {
     MovieDetail,
-    LoadingScreen
+    LoadingScreen,
   },
   data() {
     return {

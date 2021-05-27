@@ -16,8 +16,13 @@
         <p>상영시간 : {{ movie.runtime }}</p>
         <p>예산 : {{ toMoney(movie.budget) }}</p>
         <p>수익: {{ toMoney(movie.revenue) }}</p>        
-        <p>평점 : {{ movie.vote_average }}</p>
-        
+        <p>TMDB 평점 : {{ movie.vote_average }}</p>
+        <p>사이트 유저 평점 : something</p>
+
+        <div class="slidecontainer">
+          <input type="range" class="form-range" min="0" max="10" v-model="userscoreData.value" step="1" id="userscore">
+        </div>
+        <button @click="evaluationScore(userscoreData)" class="btn btn-warning" style="float: right;">평점 매기기</button>
       
     </div>
     <div class="row mt-3">
@@ -30,12 +35,22 @@
 
 <script>
 // import axios from 'axios'
+import { mapActions } from 'vuex'
+
 export default {
   name: 'MovieDetail',
   props: {
     movie: Object
   },
+  data () {
+    return {
+      userscoreData:{value: '', movie_id: this.movie.id},
+    }
+
+  },
   methods: {
+    ...mapActions(['evaluationScore']),
+
     toMoney(value){
       let money = String(value*1117).split("").reverse().join("")
       let result = ''
@@ -68,5 +83,11 @@ img {
   padding: 5px;
   width: 90%;
   height: auto;
+}
+.slidecontainer {
+  width: 50%; 
+}
+.slider:hover {
+  opacity: 1; 
 }
 </style>
