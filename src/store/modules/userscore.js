@@ -1,6 +1,4 @@
-// import axios from 'axios'
-// import DRF from '@/api/drf'
-// import router from '@/router'
+import axios from 'axios'
 
 const state = {
 }
@@ -12,13 +10,11 @@ const mutations = {
 }
 
 const actions = {
-  evaluationScore(userscoreData) {
-    console.log(userscoreData)
-    // console.log(DRF.URL + DRF.ROUTES.comment + userscoreData.article_pk, userscoreData)
-    // axios.post(DRF.URL + DRF.ROUTES.comment + commentData.article_pk + '/' , commentData, getters.config)
-
-    //   .then(() => window.location.reload())  
-    //   .catch(err => console.error(err))
+  evaluationScore({ getters }, {movie_id, value}) {
+    console.log(getters, {movie_id, value})
+    axios.post(`http://127.0.0.1:8000/movies/score/`, {movie_id, value}, getters.config)
+    .then(() => alert('평점 등록 완료.'))
+    .catch(() => alert('이미 평점을 등록하셨습니다.'))
   },
 }
 
