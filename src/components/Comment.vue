@@ -19,8 +19,7 @@
         </tr>
       </thead>
       
-      <tbody>
-        
+      <tbody>     
         <tr v-for="comment in comments" :key="comment.id">
           <td style="width: 10%;text-align: center;">{{ comment.user_name }}</td>
           <td style="width: 50%;text-align: left;">{{ comment.content }}</td>

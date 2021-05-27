@@ -13,7 +13,10 @@ const getters = {
   },
   article(state) {
     return state.article
-  }
+  },
+  tokenz() {
+    return state.authToken
+  } 
 }
 
 const mutations = {
@@ -28,12 +31,20 @@ const actions = {
       .catch(err => console.error(err))
   },
 
-  updateArticle({ commit }, article_pk) {
-    axios.get(`http://127.0.0.1:8000/board/articles/${article_pk}/`)
-    .then(res => {
-      commit('UPDATE_ARTICLE', res.data)
-      router.push({ name: 'Create'})
+  updateArticle({ getters, commit }, article_pk) {
+    axios.post(`http://127.0.0.1:8000/board/articles/check/${article_pk}/`, {}, getters.config)
+    .then(() => {
+      axios.get(`http://127.0.0.1:8000/board/articles/${article_pk}/`)
+      .then(res => {
+        commit('UPDATE_ARTICLE', res.data)
+        router.push({ name: 'Create'})
+      })
     })
+    .catch(err => {
+      console.error(err)
+      alert('글쓴이가 아닙니다.')
+    })
+    
   },
 
   createArticle({ getters }, articleData) {
@@ -49,16 +60,22 @@ const actions = {
     }
   },
   deleteArticle({ getters }, article_pk) {
-    confirm( 'Lorem ipsum dolor' )
-    axios.delete(`http://127.0.0.1:8000/board/articles/${article_pk}/`, getters.config)
-    .then(() => {
-      router.push({ name: 'Board'})
-    })
+    const isDelete = confirm( '삭제하시겠습니까?' )
+    if (isDelete === true)
+    {
+      axios.post(`http://127.0.0.1:8000/board/articles/check/${article_pk}/`, {}, getters.config)
+      .then(() => {
+        axios.delete(`http://127.0.0.1:8000/board/articles/${article_pk}/`, getters.config)
+        .then(() => {
+          router.push({ name: 'Board'})
+        })
+      })
+      .catch(err => {
+        console.error(err)
+        alert('글쓴이가 아닙니다.')
+      })
+    }
   },
-  deleteComment({ getters }, commentId){
-    axios.delete(`http://127.0.0.1:8000/board/comment/${commentId}/`, getters.config)
-    .then(() => window.location.reload())
-  }
   
 }
 

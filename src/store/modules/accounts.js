@@ -9,7 +9,8 @@ const state = {
 
 const getters = {
   isLoggedIn: state => !!state.authToken,
-  config: state => ({ headers: { Authorization: `Token ${state.authToken}` } })
+  config: state => ({ headers: { Authorization: `Token ${state.authToken}` } }),
+  token: state => state.authToken
 }
 
 const mutations = {
