@@ -33,6 +33,7 @@
   }
 
   .fadeout {
+    z-index:100;
     animation: fadeout 4s forwards;
   }
 
