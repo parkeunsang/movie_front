@@ -21,7 +21,7 @@
         <div class="container big-margin">
           <div class="row row-cols-3 row-cols-md-5 g-3">
             <div class="col" v-for="movie in movies" :key="movie.id">
-              <div class="card card-bg p-0" style="width: 100%; height: 100%;" 
+              <div class="card card-bg p-0" style="width: 100%; height: 100%; cursor:pointer;" 
               data-bs-toggle="modal" data-bs-target="#exampleModal" @click="getDetail(movie)">
                   <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" class="card-img-top" alt="..."
                   onerror="this.src='https://i.ibb.co/60mkvdG/tmdb.jpg'">
