@@ -31,8 +31,8 @@
 
           <div class="col-3">
             <RouterLink :to="{name: 'MovieList'}">
-              <button class="btn btn-light" type="button" @click="searchByTitleOrKeywords">
-                <i class="fas fa-search"></i>
+              <button class="btn btn btn-outline-light" type="button" @click="searchByTitleOrKeywords" style="font-size: 0.6vmax;height:90%;">
+                <i class="fas fa-search" ></i>
               </button>
             </RouterLink>
           </div>
@@ -90,17 +90,17 @@ export default {
     background: transparent;
     width: 100%;
     color: white;
-    font-size: 1.4rem;
+    font-size: 0.9vmax;
     font-family: 'Bazzi';
   }
   .fontq {
     font-family: 'Bazzi';
-    font-size: 2rem;
+    font-size: 1.3vmax;
     color: white;
   }
   .font {
     font-family: 'Bazzi';
-    font-size: 1.3rem;
+    font-size: 0.9vmax;
     color: white;
   }
   @font-face {

@@ -7,14 +7,14 @@
 
             <div class="mt-5"></div>
             <div class="mt-2"></div> 
-            <RouterLink :to="{name: 'Home'}" class="btn btn-outline-light btn-lg">HOME</RouterLink>
+            <RouterLink :to="{name: 'Home'}" class="btn btn-outline-light btn-lg" style="font-size: 0.9vmax;">HOME</RouterLink>
             <!-- <RouterLink :to="{name: 'MovieList'}" tag="button" class="btn btn-outline-light btn-lg">MOVIELIST</RouterLink> -->
-            <a class="btn btn-outline-light btn-lg" href="#" @click="getRecentMovies">RECENT MOVIES</a>
-            <RouterLink :to="{name: 'Recommend'}" tag="button" class="btn btn-outline-light btn-lg">RECOMMEND</RouterLink>
-            <RouterLink :to="{name: 'Board'}" class="btn btn-outline-light btn-lg">BOARD</RouterLink>
-            <RouterLink v-if="!isLoggedIn" :to="{name: 'Login'}" class="btn btn-outline-light btn-lg" btn-lg>LOGIN</RouterLink>
-            <RouterLink v-if="!isLoggedIn" :to="{name: 'SignUp'}" class="btn btn-outline-light btn-lg">SIGNUP</RouterLink>
-            <RouterLink v-if="isLoggedIn" :to="{name: 'Logout'}" class="btn btn-outline-light btn-lg">LOGOUT</RouterLink>
+            <a class="btn btn-outline-light btn-lg" href="#" @click="getRecentMovies" style="font-size: 0.9vmax;">RECENT MOVIES</a>
+            <RouterLink :to="{name: 'Recommend'}" tag="button" class="btn btn-outline-light btn-lg" style="font-size: 0.9vmax;">RECOMMEND</RouterLink>
+            <RouterLink :to="{name: 'Board'}" class="btn btn-outline-light btn-lg" style="font-size: 0.9vmax;">BOARD</RouterLink>
+            <RouterLink v-if="!isLoggedIn" :to="{name: 'Login'}" class="btn btn-outline-light btn-lg" btn-lg style="font-size: 0.9vmax;">LOGIN</RouterLink>
+            <RouterLink v-if="!isLoggedIn" :to="{name: 'SignUp'}" class="btn btn-outline-light btn-lg" style="font-size: 0.9vmax;">SIGNUP</RouterLink>
+            <RouterLink v-if="isLoggedIn" :to="{name: 'Logout'}" class="btn btn-outline-light btn-lg" style="font-size: 0.9vmax;">LOGOUT</RouterLink>
           </div>
         </div>
       </div>
@@ -73,5 +73,6 @@ export default {
 
   .fontcheck {
     font-family: 'InkLipquid';
+    font-size: 0.3vmax;
   }
 </style>
