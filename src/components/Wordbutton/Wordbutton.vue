@@ -36,6 +36,7 @@
 </template>
 <script>
 import axios from 'axios'
+import DRF from '@/api/drf.js'
 import VueMulticlick from "../dist"
 import { mapActions } from 'vuex'
 export default {
@@ -70,7 +71,7 @@ export default {
       // console.log(this.selectedItems)
   },
   created() {
-    axios.get('http://127.0.0.1:8000/recommends/keywords/')
+    axios.get(`${DRF.URL}recommends/keywords/`)
     .then(res => {
       this.items = res.data.data
     })

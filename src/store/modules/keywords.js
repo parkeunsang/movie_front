@@ -1,6 +1,6 @@
 import axios from 'axios'
 import router from '@/router'
-
+import DRF from '@/api/drf'
 const state = {
   movieData: [],
 }
@@ -26,7 +26,7 @@ const mutations = {
 
 const actions = {
   getMoviesByTitle({ commit }, inputValue){
-    axios.get(`http://127.0.0.1:8000/movies/search/title/${inputValue}`)
+    axios.get(`${DRF.URL}movies/search/title/${inputValue}`)
     .then((res) => {
       const data = res.data
       commit('GET_MOVIES_BY_TITLE', data)
@@ -35,7 +35,7 @@ const actions = {
   },
 
   getMoviesByKeywords({ commit }, inputValue){
-    axios.get(`http://127.0.0.1:8000/movies/search/keywords/${inputValue}`)
+    axios.get(`${DRF.URL}movies/search/keywords/${inputValue}`)
     .then((res) => {
       const data = res.data
       commit('GET_MOVIES_BY_KEYWORDS', data)
@@ -44,7 +44,7 @@ const actions = {
   },
 
   getRecentMovies({ commit }){
-    axios.get(`http://127.0.0.1:8000/movies/recent/`)
+    axios.get(`${DRF.URL}movies/recent/`)
     .then((res) => {
       const data = res.data
       commit('GET_RECENT_MOVIES', data)

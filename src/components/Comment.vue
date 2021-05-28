@@ -35,6 +35,7 @@
 <script>
 import axios from 'axios'
 import { mapActions } from 'vuex'
+import DRF from '@/api/drf.js'
 
 export default {
   name: 'Comment',
@@ -50,11 +51,11 @@ export default {
     ...mapActions(['createComment','deleteComment'])
   },
   created() {
-    axios.get(`http://127.0.0.1:8000/board/articles/${this.$route.query.pk}/`)
+    axios.get(`${DRF.URL}board/articles/${this.$route.query.pk}/`)
       .then(res => {
         this.article = res.data
         this.commentData.article_pk = String(this.article.id)
-        axios.get(`http://127.0.0.1:8000/board/comment/${this.article.id}/`)
+        axios.get(`${DRF.URL}board/comment/${this.article.id}/`)
         .then(res => {
           this.comments = res.data
         })

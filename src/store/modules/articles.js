@@ -63,9 +63,9 @@ const actions = {
     const isDelete = confirm( '삭제하시겠습니까?' )
     if (isDelete === true)
     {
-      axios.post(`http://127.0.0.1:8000/board/articles/check/${article_pk}/`, {}, getters.config)
+      axios.post(`${DRF.URL}board/articles/check/${article_pk}/`, {}, getters.config)
       .then(() => {
-        axios.delete(`http://127.0.0.1:8000/board/articles/${article_pk}/`, getters.config)
+        axios.delete(`${DRF.URL}board/articles/${article_pk}/`, getters.config)
         .then(() => {
           router.push({ name: 'Board'})
         })

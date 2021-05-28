@@ -49,6 +49,7 @@
 import NavMenu from '@/components/NavMenu.vue'
 import MovieDetail from '@/components/MovieDetail.vue'
 import axios from 'axios'
+import DRF from '@/api/drf.js'
 
 const API_KEY = process.env.VUE_APP_TMDB_KEY
 
@@ -85,7 +86,7 @@ export default {
       .then((res) => {
         this.movie = res.data
         this.score = movie.score
-        axios.get(`http://127.0.0.1:8000/movies/score/${movie.id}/`)
+        axios.get(`${DRF.URL}movies/score/${movie.id}/`)
         .then(res => {
           this.score = res.data.score
         })

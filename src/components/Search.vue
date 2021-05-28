@@ -46,7 +46,7 @@
 </template>
 <script>
 import axios from 'axios'
-// import { mapActions } from 'vuex'
+import DRF from '@/api/drf.js'
 export default {
   name: 'Search',
   components: {
@@ -62,7 +62,7 @@ export default {
     searchMovie(event) {
       if (this.picked==='title') {
         if (event.target.value !== '') {
-          axios.get(`http://127.0.0.1:8000/movies/data-list/${event.target.value}/`)
+          axios.get(`${DRF.URL}movies/data-list/${event.target.value}/`)
           .then(res => {
             this.searchWords = res.data
         })
