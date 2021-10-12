@@ -1,6 +1,7 @@
 // api/drf.js
 export default {
-  URL: 'http://localhost:8000/',
+  // URL: 'http://localhost:8000/',
+  URL: 'http://13.125.77.207/',
   ROUTES: {
     signup: 'rest-auth/signup/',
     login: 'rest-auth/login/',
