@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LoadingScreen :isLoading="isLoading" />
+    <LoadingScreen :isLoading="isLoading" :loadingText="'로딩중'"/>
     <div v-if="!isLoading" class="font">
         <NavMenu/>
         <h2 class="text-light mb-5" style="text-align: center;font-size:2vmax">당신이 찾고자 하는 영화는</h2>

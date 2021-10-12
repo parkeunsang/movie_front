@@ -4,7 +4,8 @@ import DRF from '@/api/drf'
 
 const state = {
   articles: [],
-  article: {title: '', content: ''}
+  article: {title: '', content: ''},
+  tempz: 1
 }
 
 const getters = {

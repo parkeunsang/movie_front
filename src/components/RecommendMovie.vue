@@ -1,7 +1,7 @@
 <template>
   <div>
-    <LoadingScreen :isLoading="isLoading" />
-    <div v-if="!isLoading">
+    <LoadingScreen :isLoading="isLoadingR" :loadingText="'분석중'" />
+    <div v-if="!isLoadingR">
       <div class="font">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" 
           aria-hidden="true">
@@ -41,7 +41,6 @@
 <script>
 import MovieDetail from '@/components/MovieDetail.vue'
 import axios from 'axios'
-
 import LoadingScreen from '@/components/LoadingScreen.vue'
 
 const API_KEY = process.env.VUE_APP_TMDB_KEY
@@ -76,6 +75,10 @@ export default {
     movies() {
       return this.$store.state.recommend.recommendMovies.data
     },
+    isLoadingR() {
+      return this.$store.state.loading.isLoadingR
+    }
+
   },
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LoadingScreen :isLoading="isLoading" />
+    <LoadingScreen :isLoading="isLoading" :loadingText="'로딩중'"/>
     <div v-if="!isLoading">
    
       <NavMenu/>

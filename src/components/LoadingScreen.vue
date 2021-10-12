@@ -1,7 +1,7 @@
 <template>
-  <div :class="{ loader: true, fadeout: !isLoading }">
+  <div :class="{ loader: true, fadeout: !isLoading}">
     <div id="loading-wrapper">
-      <div id="loading-text">분석중...</div>
+      <div id="loading-text">{{loadingText}}...</div>
       <div id="loading-content"></div>
     </div>
   </div>
@@ -10,8 +10,14 @@
 <script>
   export default {
     name: "LoadingScreen",
-    props: ["isLoading"]
+    props: ["isLoading", "loadingText"],
+    created() {
+      console.log('zzzz')
+      console.log(this.isLoading)
+    }
+    
   };
+  
 </script>
 
 <style>
@@ -34,8 +40,9 @@
 
   .fadeout {
     z-index:100;
-    animation: fadeout 3s forwards;
+    animation: fadeout 0.1s forwards;
   }
+  
 
   @keyframes fadeout {
     to {

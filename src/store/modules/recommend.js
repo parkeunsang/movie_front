@@ -22,16 +22,19 @@ const mutations = {
 
 const actions = {
   getRecommendMovies({ commit }, keywords){
+    commit('START_SPINNER')
     let str = ''
     for (let element of keywords){
       str += element.name + ' '
     }
     axios.get(DRF.URL + DRF.ROUTES.recommend + str)
       .then((res) => {
-        console.log(123)
         state.recommendMovies = res.data
+      }) .then(() => {
+        commit('END_SPINNER')
       })
     commit('GET_RECOMMEND')
+    
   },
   recommendInit( { commit }){
     commit('RECOMMEND_INIT')
